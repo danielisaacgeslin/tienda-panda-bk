@@ -6,9 +6,7 @@ module.exports = {
     mongo: {
         url: process.env.url,
         options: {
-            db: process.env.db,
-            user: process.env.user,
-            pass: process.env.pass,
+            useMongoClient: true
         }
     }
 };
