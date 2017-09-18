@@ -1,0 +1,25 @@
+{
+  "name": "tienda-panda-bk",
+  "version": "1.0.0",
+  "description": "Backend for Tienda Panda",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielisaacgeslin/tienda-panda-bk.git"
+  },
+  "author": "Daniel Isaac Geslin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielisaacgeslin/tienda-panda-bk/issues"
+  },
+  "homepage": "https://github.com/danielisaacgeslin/tienda-panda-bk#readme",
+  "dependencies": {
+    "nodemon": "^1.12.1",
+    "restify": "^6.0.0",
+    "restify-logger": "^2.0.1"
+  }
+}
