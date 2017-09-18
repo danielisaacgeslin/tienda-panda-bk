@@ -18,8 +18,15 @@
   },
   "homepage": "https://github.com/danielisaacgeslin/tienda-panda-bk#readme",
   "dependencies": {
+    "glob": "^7.1.2",
+    "mongoose": "^4.11.11",
     "nodemon": "^1.12.1",
     "restify": "^6.0.0",
     "restify-logger": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/glob": "^5.0.32",
+    "@types/mongoose": "^4.7.21",
+    "@types/restify": "^5.0.3"
   }
 }
