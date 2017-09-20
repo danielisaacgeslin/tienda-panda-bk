@@ -5,6 +5,11 @@ const getRoutes = require('./routes');
 
 const server = restify.createServer({ name: constants.appName });
 
+server.use((req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
