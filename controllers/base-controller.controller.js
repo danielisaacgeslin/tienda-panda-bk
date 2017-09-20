@@ -8,16 +8,12 @@ class BaseController {
     }
 
     success(res, data) {
+        console.log('success:', data);
         return res.json(200, data);
     }
 
     clearAll(model) {
-        return new Promise((resolve, reject) => {
-            model.remove(error => {
-                if (error) return reject(error);
-                else resolve();
-            });
-        });
+        return model.remove();
     }
 }
 

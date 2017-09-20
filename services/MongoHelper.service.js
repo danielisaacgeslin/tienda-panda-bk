@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const constants = require('../constants');
 
+mongoose.Promise = global.Promise;
+
 class MongoHelper {
     static get db() { return mongoose.connection; }
 

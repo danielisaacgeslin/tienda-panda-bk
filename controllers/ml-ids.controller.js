@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const BaseController = require('./base-controller.controller');
 const MongoHelper = require('../services/MongoHelper.service');
+const AuthHelper = require('../services/AuthHelper.service');
 const { schema, model } = require('../schemas/ml-ids.schema');
 
 const example = { products: ['1'], promotions: ['2'], secondHand: ['3'] };
@@ -14,19 +15,18 @@ class MLController extends BaseController {
     }
 
     save(req, res, next) {
+        if (!AuthHelper.validateToken(req.headers.token)) return this.error(res, 'invalid token');
         this.clearAll(model)
-            .then(() => model.create(req.body, (error, model) => {
-                if (error) return this.error(res, error);
-                else return this.success(res, model);
-            }));
+            .then(() => model.create(req.body), error => this.error(res, error))
+            .then(data => this.success(res, data), error => this.error(res, error));
     }
 
     find(req, res, next) {
         const params = JSON.parse(req.params.filters || '{}');
-        model.findOne().sort({ created_at: 1 }).exec(params, (error, model) => {
-            if (error) return this.error(res, error);
-            else return this.success(res, model);
-        });
+        model.findOne()
+            .sort({ created_at: 1 })
+            .exec(params)
+            .then(data => this.success(res, data), error => this.error(res, error));
     }
 }
 
