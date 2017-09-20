@@ -13,8 +13,10 @@ getRoutes.then(routes => {
     routes.forEach(route => server[route.method](route.path, route.cb));
     server.listen(constants.server.port, constants.server.host, () => {
         console.log('listening at');
-        console.log('server port:', server.port);
-        console.log('server host:', server.host);
+        console.log('server name:', server.name);
+        console.log('server url:', server.url);
+        console.log('server port:', constants.server.port);
+        console.log('server host:', constants.server.host);
     });
 });
 
